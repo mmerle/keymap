@@ -1,15 +1,3 @@
-    /* Template
-     * ,-----------------------------------------------------------------------.
-     * |     |     |     |     |     |     |     |     |     |     |     |     |
-     * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
-     * |     |     |     |     |     |     |     |     |     |     |     |     |
-     * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
-     * |     |     |     |     |     |     |     |     |     |     |     |     |
-     * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
-     * |     |     |     |     |     |           |     |     |     |     |     |
-     * `-----------------------------------------------------------------------'
-    */
-
 #include QMK_KEYBOARD_H
 #include "muse.h"
 
@@ -41,12 +29,15 @@ enum planck_keycodes {
 // #define CTL_L RCTL_T(KC_L)
 
 // row mods
-#define CTL_X LCTL_T(KC_X)
+// #define CTL_X LCTL_T(KC_X)
 #define ALT_C LALT_T(KC_C)
 #define GUI_V LGUI_T(KC_V)
 #define GUI_M RGUI_T(KC_M)
 #define ALT_COMM LALT_T(KC_COMM)
-#define CTL_DOT RCTL_T(KC_DOT)
+// #define CTL_DOT RCTL_T(KC_DOT)
+
+// ctl escape
+#define CTL_ESC RCTL_T(KC_ESC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -63,8 +54,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------------------'
     */
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,  KC_U,    KC_I,     KC_O,    KC_P,    KC_BSPC,
-    KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,  KC_J,    KC_K,     KC_L,    KC_SCLN, KC_ENT,
-    KC_LSFT, KC_Z,    CTL_X,   ALT_C,   GUI_V,   KC_B,    KC_N,  GUI_M,   ALT_COMM, CTL_DOT, KC_SLSH, KC_RSFT,
+    CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,  KC_J,    KC_K,     KC_L,    KC_SCLN, KC_ENT,
+    KC_LSFT, KC_Z,    KC_X,    ALT_C,   GUI_V,   KC_B,    KC_N,  GUI_M,   ALT_COMM, KC_DOT, KC_SLSH, KC_RSFT,
     KC_MEH,  XXXXXXX, XXXXXXX, NAV,     LOWER,     KC_SPACE,     RAISE,   MEDIA,    XXXXXXX, XXXXXXX, KC_MEH
 ),
 
