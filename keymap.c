@@ -21,12 +21,10 @@ enum planck_keycodes {
 #define MEDIA MO(_MEDIA)
 
 // row mods
-// #define CTL_X LCTL_T(KC_X)
 #define ALT_C LALT_T(KC_C)
 #define GUI_V LGUI_T(KC_V)
 #define GUI_M RGUI_T(KC_M)
 #define ALT_COMM LALT_T(KC_COMM)
-// #define CTL_DOT RCTL_T(KC_DOT)
 
 // ctl escape
 #define CTL_ESC RCTL_T(KC_ESC)
@@ -42,13 +40,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
      * |Shift|  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |Shift|
      * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
-     * | MEH |MEDIA| ALT | GUI | NAV |   Space   | SYM | NUM |     |     |HYPR |
+     * | MEH |     |     |MEDIA| NAV |   Space   | SYM | NUM |     |     | MEH |
      * `-----------------------------------------------------------------------'
      */
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,  KC_U,    KC_I,     KC_O,    KC_P,    KC_BSPC,
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,  KC_J,    KC_K,     KC_L,    KC_SCLN, KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    ALT_C,   GUI_V,   KC_B,    KC_N,  GUI_M,   ALT_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    KC_MEH,  MEDIA,   KC_LALT, KC_LGUI,  NAV,       KC_SPACE,    SYM,     NUM,      XXXXXXX, XXXXXXX, KC_MEH
+    KC_MEH,  XXXXXXX, XXXXXXX, MEDIA,   NAV,       KC_SPACE,     SYM,     NUM,      XXXXXXX, XXXXXXX, KC_MEH
 ),
 
 [_SYM] = LAYOUT_planck_grid(
@@ -78,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
      * |     |     |     |     |     |     |     |  1  |  2  |  3  |     |     |
      * |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
-     * |     |     |     |     |     |           |     |  0  |     |     |     |
+     * |     |     |     |     |     |           |     |     |     |     |     |
      * `-----------------------------------------------------------------------'
      */
     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,     KC_7,    KC_8,    KC_9,    KC_0,    _______,
@@ -149,7 +147,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _NAV, _SYM, _ADJUST);
 }
 
-// no idea
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case BACKLIT:
