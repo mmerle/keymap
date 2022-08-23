@@ -29,6 +29,9 @@ enum planck_keycodes {
 // ctl escape
 #define CTL_ESC RCTL_T(KC_ESC)
 
+// one shot hyper
+#define OS_MEH OSM(MOD_MEH)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_BASE] = LAYOUT_planck_1x2uC(
@@ -46,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,  KC_U,    KC_I,     KC_O,    KC_P,    KC_BSPC,
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,  KC_J,    KC_K,     KC_L,    KC_SCLN, KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    ALT_C,   GUI_V,   KC_B,    KC_N,  GUI_M,   ALT_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    KC_MEH,  XXXXXXX, XXXXXXX, MEDIA,   NAV,       KC_SPACE,     SYM,     NUM,      XXXXXXX, XXXXXXX, KC_MEH
+    OS_MEH,  XXXXXXX, XXXXXXX, MEDIA,   NAV,       KC_SPACE,     SYM,     NUM,      XXXXXXX, XXXXXXX, OS_MEH
 ),
 
 [_SYM] = LAYOUT_planck_grid(
