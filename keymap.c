@@ -16,14 +16,11 @@ enum planck_keycodes {
 #define SYM MO(_SYM)
 #define NUM MO(_NUM)
 
-// ctl / escape
 #define CTL_ESC RCTL_T(KC_ESC)
-
 #define SFT_TAB G(S(KC_TAB))
 
 // one shot meh
 #define OS_MEH OSM(MOD_MEH)
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -35,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
   │ sft │  z  │  x  │  c  │  v  │  b  │  n  │  m  │  ,  │  .  │  /  │ sft │
   ├─────┼─────┼─────┼─────┼─────┼─────┴─────┼─────┼─────┼─────┼─────┼─────┤
-  │     │     │  ⌥  │  ⌘  │ SYM │   space   │ NAV │  ⌘  │  ⌥  │     │     │
+  │     │     │  ⌥  │  ⌘  │ SYM │   space   │ NAV │ HYP │  ⌥  │     │     │
   └─────┴─────┴─────┴─────┴─────┴───────────┴─────┴─────┴─────┴─────┴─────┘
 */
 
@@ -43,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,   KC_U,    KC_I,     KC_O,    KC_P,    KC_BSPC,
   CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,   KC_J,    KC_K,     KC_L,    KC_SCLN, KC_ENT,
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,   KC_M,    KC_COMM,  KC_DOT,  KC_SLSH, KC_RSFT,
-  OS_MEH,  XXXXXXX, KC_LALT, KC_LGUI, SYM,     KC_SPC,  KC_SPC, NUM,     KC_RGUI,  KC_LALT, XXXXXXX, OS_MEH 
+  XXXXXXX,  XXXXXXX, KC_LALT, KC_LGUI, SYM,     KC_SPC,  KC_SPC, NUM,     KC_HYPR,  KC_RALT, XXXXXXX, XXXXXXX 
 ),
 
 /* [_SYM] - symbols
@@ -87,17 +84,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
 
 [_NUM] = LAYOUT_planck_grid(
-  SFT_TAB, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,     KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
+  _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,     KC_7,    KC_8,    KC_9,    KC_0,    _______,
   _______, KC_4,    KC_5,    KC_6,    _______, _______, KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
   _______, KC_7,    KC_8,    KC_9,    _______, _______, KC_HOME,  KC_PGDN, KC_PGUP, KC_END,  _______, _______,
-  _______, _______, KC_0,    _______, _______, _______, _______,  _______, _______, _______, _______, _______
+  _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______
 ),
 
 /* [_FUN] - function
   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
   │boot │ f1  │ f2  │ f3  │     │     │     │     │     │     │     │sleep│
   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-  │caps │ f4  │ f5  │ f6  │     │     │ prv │  v- │  v+ │ nxt │     │play │
+  │     │ f4  │ f5  │ f6  │     │     │ prv │  v- │  v+ │ nxt │     │play │
   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
   │     │ f7  │ f8  │ f9  │     │     │     │ br- │ br+ │     │     │     │
   ├─────┼─────┼─────┼─────┼─────┼─────┴─────┼─────┼─────┼─────┼─────┼─────┤
@@ -128,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
   │ tab │  q  │  w  │  e  │  r  │     │     │     │     │  ▲  │     │     │
   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-  │ esc │  a  │  s  │  d  │  f  │     │     │     │  ◀︎  │  ▼  │  ▶︎  │     │
+  │  ^  │  a  │  s  │  d  │  f  │     │     │     │  ◀︎  │  ▼  │  ▶︎  │     │
   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
   │ sft │  1  │  2  │  3  │  4  │     │     │     │     │     │     │     │
   ├─────┼─────┼─────┼─────┼─────┼─────┴─────┼─────┼─────┼─────┼─────┼─────┤
