@@ -1,33 +1,34 @@
-# keymap
+# Keyboard keymaps
 
-40% keymap layout for development and design work
+QMK keymaps for two keyboards:
 
-## Layers
+- Planck Rev 6 Drop: `planck/rev6_drop`
+- Cipulot EC60X-SE in an HHKB Pro 3: `cipulot/ec_60x`
 
-### Qwerty
+The repository is a [QMK external userspace](https://docs.qmk.fm/newbs_external_userspace). Each keyboard has an independent `main` keymap.
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│ tab │  q  │  w  │  e  │  r  │  t  │  y  │  u  │  i  │  o  │  p  │ bsp │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│esc/^│  a  │  s  │  d  │  f  │  g  │  h  │  j  │  k  │  l  │  ;  │ ent │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ sft │  z  │  x  │  c  │  v  │  b  │  n  │  m  │  ,  │  .  │  /  │ sft │
-├─────┼─────┼─────┼─────┼─────┼─────┴─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │  ⌥  │  ⌘  │ SYM │   space   │ NAV │  ⌘  │  ⌥  │     │     │
-└─────┴─────┴─────┴─────┴─────┴───────────┴─────┴─────┴─────┴─────┴─────┘
+## Setup
+
+Install and configure a current QMK checkout, then register this repository as the userspace overlay:
+
+```sh
+make setup
 ```
 
-### Symbols
+## Build
 
+```sh
+make          # List commands
+make all      # Build both keyboards
+make planck   # Build only the Planck
+make hhkb     # Build only the EC60X-SE
 ```
-┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│  ~  │  !  │  @  │  #  │  $  │  %  │  ^  │  &  │  *  │  (  │  )  │  `  │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │  |  │  {  │  }  │  '  │     │     │  -  │  =  │  +  │  :  │     │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │  \  │  [  │  ]  │  "  │     │     │  _  │  <  │  >  │  ?  │     │
-├─────┼─────┼─────┼─────┼─────┼─────┴─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │ ▓▓▓ │           │     │     │     │     │     │
-└─────┴─────┴─────┴─────┴─────┴───────────┴─────┴─────┴─────┴─────┴─────┘
+
+## Flash
+
+```sh
+make flash-planck
+make flash-hhkb
 ```
+
+The EC60X-SE keymap includes VIA support. The map in `keymap.c` is the default restored after an EEPROM reset; changes made in VIA are stored on the keyboard and do not modify this repository.
