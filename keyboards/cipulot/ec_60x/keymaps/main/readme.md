@@ -1,15 +1,16 @@
 # Cipulot EC60X-SE HHKB
 
-Stock-style HHKB layout for the EC60X-SE PCB in an HHKB Pro 3. The keymap uses `LAYOUT_all` because the EC60X supports several physical layouts; unused matrix positions are disabled with `KC_NO`.
+HHKB layout for the EC60X-SE PCB in an HHKB Pro 3. The keymap uses `LAYOUT_all` because the EC60X supports several physical layouts; unused matrix positions are disabled with `KC_NO`.
+
+The Control position sends Escape when tapped and Right Control when held.
 
 ## Fn layer
 
-The Fn layer follows the conventional HHKB arrangement for function keys, navigation, media and keypad controls. Additional controls are:
+The Fn layer provides function keys and navigation controls:
 
-- Fn+Esc: enter the bootloader.
-- Fn+Z: toggle RGB lighting.
-- Fn+X: select the next RGB mode.
-- Fn+C/Fn+V: decrease/increase RGB brightness.
+- Fn+grave (the top-left key): enter the bootloader.
+- Fn+H/J/K/L: left/down/up/right.
+- Fn+N/M/comma/period: Home/Page Down/Page Up/End.
 
 ## VIA
 

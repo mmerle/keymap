@@ -5,46 +5,48 @@ enum layers {
     _FN,
 };
 
+#define CTL_ESC RCTL_T(KC_ESC)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /* Base: stock HHKB layout
+    /* Base: HHKB layout
      * ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-     * │ Esc │  1  │  2  │  3  │  4  │  5  │  6  │  7  │  8  │  9  │  0  │  -  │  =  │  \  │  `  │
+     * │  `  │  1  │  2  │  3  │  4  │  5  │  6  │  7  │  8  │  9  │  0  │  -  │  =  │  \  │     │
      * ├─────┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴─────┤
-     * │  Tab   │  Q  │  W  │  E  │  R  │  T  │  Y  │  U  │  I  │  O  │  P  │  [  │  ]  │  Bspc  │
+     * │  tab   │  Q  │  W  │  E  │  R  │  T  │  Y  │  U  │  I  │  O  │  P  │  [  │  ]  │  bspc  │
      * ├────────┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴────────┤
-     * │   Ctrl   │  A  │  S  │  D  │  F  │  G  │  H  │  J  │  K  │  L  │  ;  │  '  │   Enter    │
+     * │  esc/^   │  A  │  S  │  D  │  F  │  G  │  H  │  J  │  K  │  L  │  ;  │  '  │   enter    │
      * ├──────────┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──────┬─────┤
-     * │    Shift    │  Z  │  X  │  C  │  V  │  B  │  N  │  M  │  ,  │  .  │  /  │  Shift  │ Fn  │
+     * │    shift    │  Z  │  X  │  C  │  V  │  B  │  N  │  M  │  ,  │  .  │  /  │  shift  │ FN  │
      * └────────┬────┴┬────┴───┬─┴─────┴─────┴─────┴─────┴─────┴───┬─┴─────┴┬────┴┬────────┴─────┘
-     *          │ Alt │  GUI   │               Space               │  GUI   │ Alt │
+     *          │ alt │  gui   │               space               │  gui   │ alt │
      *          └─────┴────────┴───────────────────────────────────┴────────┴─────┘
      */
     [_BASE] = LAYOUT_all(
-        KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSLS, KC_GRV,
+        KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSLS, KC_NO,
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC, KC_NO,
-        KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_NO,   KC_ENT,
+        CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_NO,   KC_ENT,
         KC_LSFT, KC_NO,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO,   KC_RSFT, MO(_FN),
         KC_NO,   KC_LALT, KC_LGUI,           KC_NO,             KC_SPC,             KC_NO,              KC_RGUI, KC_RALT, KC_NO, KC_NO
     ),
 
-    /* Fn: standard HHKB controls with bootloader and RGB controls
+    /* Fn: function keys, bootloader and navigation
      * ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-     * │Boot │ F1  │ F2  │ F3  │ F4  │ F5  │ F6  │ F7  │ F8  │ F9  │ F10 │ F11 │ F12 │ Ins │ Del │
+     * │boot │ F1  │ F2  │ F3  │ F4  │ F5  │ F6  │ F7  │ F8  │ F9  │ F10 │ F11 │ F12 │ ins │ del │
      * ├─────┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴─────┤
-     * │  Caps  │     │     │     │     │     │     │     │ PSc │ SLk │ Pau │ Up  │     │  Bspc  │
+     * │        │     │     │     │     │     │     │     │     │     │     │     │     │        │
      * ├────────┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴────────┤
-     * │          │ Vol-│ Vol+│Mute │     │     │  *  │  /  │Home │PgUp │Left │Right│   Enter    │
+     * │          │     │     │     │     │     │  ◀  │  ▼  │  ▲  │  ▶  │     │     │            │
      * ├──────────┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──────┬─────┤
-     * │             │ RGB │Next │ B-  │ B+  │  +  │  -  │ End │PgDn │Down │     │         │ ▓▓▓ │
+     * │             │     │     │     │     │     │Home │PgDn │PgUp │ End │     │         │ ▓▓▓ │
      * └────────┬────┴┬────┴───┬─┴─────┴─────┴─────┴─────┴─────┴───┬─┴─────┴┬────┴┬────────┴─────┘
      *          │     │        │                                   │        │     │
      *          └─────┴────────┴───────────────────────────────────┴────────┴─────┘
      */
     [_FN] = LAYOUT_all(
         QK_BOOT,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_INS,  KC_DEL,
-        KC_CAPS,  _______, _______, _______, _______, _______, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, KC_UP,   _______, KC_BSPC, KC_NO,
-        _______,  KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, KC_PAST, KC_PSLS, KC_HOME, KC_PGUP, KC_LEFT, KC_RGHT, KC_NO,   KC_PENT,
-        _______,  KC_NO,   UG_TOGG, UG_NEXT, UG_VALD, UG_VALU, KC_PPLS, KC_PMNS, KC_END,  KC_PGDN, KC_DOWN, _______, KC_NO,   _______, _______,
+        _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_NO,
+        _______,  _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______, KC_NO,   _______,
+        _______,  KC_NO,   _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, KC_NO,   _______, _______,
         KC_NO,    _______, _______,           KC_NO,             _______,             KC_NO,              _______, _______, KC_NO, KC_NO
     ),
 };
