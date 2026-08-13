@@ -9,7 +9,7 @@ The Control position sends Escape when tapped and Right Control when held.
 The Fn layer provides function keys and navigation controls:
 
 - Fn+grave (the top-left key): enter the bootloader.
-- Fn+H/J/K/L: left/down/up/right.
+- Fn+W/A/S/D: up/left/down/right.
 - Fn+N/M/comma/period: Home/Page Down/Page Up/End.
 
 ## VIA
