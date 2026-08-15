@@ -1,22 +1,10 @@
 # Cipulot EC60X-SE HHKB
 
-HHKB layout for the EC60X-SE PCB in an HHKB Pro 3. The keymap uses `LAYOUT_all` because the EC60X supports several physical layouts; unused matrix positions are disabled with `KC_NO`.
-
-The Control position sends Escape when tapped and Right Control when held.
-
-## Fn layer
-
-The Fn layer provides function keys and navigation controls:
-
-- Fn+grave (the top-left key): enter the bootloader.
-- Fn+W/A/S/D: up/left/down/right.
-- Fn+N/M/comma/period: Home/Page Down/Page Up/End.
+EC60X-SE PCB in an HHKB Pro 3.
 
 ## VIA
 
-VIA support is compiled into this keymap. Changes made in VIA are stored in EEPROM. Resetting EEPROM restores the layout defined in `keymap.c`.
-
-Select the HHKB bottom-row option in VIA so its layout view matches the physical keyboard.
+VIA is compiled into the QMK firmware for calibration and EC settings. Enter the bootloader with the keymap's `QK_BOOT` key before flashing so VIA reloads the newly compiled map.
 
 ## Build
 
@@ -29,3 +17,7 @@ make hhkb
 ```sh
 make flash-hhkb
 ```
+
+This target flashes STM32 sector 0 and sectors 2 onward separately, leaving the sector 1 EEPROM untouched. This preserves EC calibration and RGB settings. Do not substitute a direct `qmk flash` command.
+
+Load `via/ec_60x-2026-07-23.json` in VIA because the current live definition expects a board-variant command that upstream QMK does not implement.
